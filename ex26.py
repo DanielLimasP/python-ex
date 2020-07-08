@@ -1,1 +1,3 @@
 #Python the hard way: excercise 26
+
+#Excersice 26 is pretty much bug fixing...
