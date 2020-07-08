@@ -55,16 +55,17 @@ def data_h():
 # String escape sequences:
 def escape_sequences_h():
     """
-    \\          -Reverse dash
-    \'          -single quote
-    \"          -double quote
-    \a          -Ringing bell(?)
-    \b          -backspace
-    \f          -formfeed
-    \n          -linefeed
-    \r          -moves characters after r and sends them to the beggining of the line,. overriding existing chars
-    \t          -tab
-    \v          -(?)
+    Remeber to put \ char before any of this chars...
+    \          -Reverse dash
+    '          -single quote
+    "          -double quote
+    a          -Ringing bell(?)
+    b          -backspace
+    f          -formfeed
+    n          -linefeed
+    r          -moves characters after r and sends them to the beggining of the line,. overriding existing chars
+    t          -tab
+    v          -(?)
     """
 
 # String formats
