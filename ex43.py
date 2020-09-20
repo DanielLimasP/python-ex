@@ -1,1 +1,0 @@
-#Python the hard way: excercise 43
