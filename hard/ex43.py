@@ -1,4 +1,5 @@
 # Python the hard way: excercise 43
+# This is pretty much a console sim, with ls, cd and pwd commands.
 import hashlib
 from getpass import getpass
 import random as rand
@@ -88,21 +89,21 @@ class File_Directory:
     rand.seed(10)
 
     def __init__(self, user):
-        self.root_name = 'CNT D:/' + user + "> "
-        self.current_dir = self.root_name
+        self.root_name = 'CNT D:/' + user
+        self.current_dir = "CNT D:/" + user + "> "
         self.last_dir = ''
         self.user = user
 
         self.fd = {
             "CNT D:/" + user + "> ": {"Downloads", "Documents", "catpics", "Master_Hacker_Things"},
-            "CNT D:/" + user + "/Home/Downloads> ": {"Cat1.png", "Netbong.exe", "Win10-iso-by-progarms-gratis.ocm", "top_secret"},
-            "CNT D:/" + user + "/Home/Documents> ": {"Notes", "Projects", "Images", "Videos"},
+            "CNT D:/" + user + "/Downloads> ": {"Cat1.png", "Netbong.exe", "Win10-iso-by-progarms-gratis.ocm", "top_secret"},
+            "CNT D:/" + user + "/Documents> ": {"Notes", "Projects", "Images", "Videos"},
             "CNT D:/" + user + "/catpics> ": {"cat.png", "cot.png", "cut cat.jpg", "beautiful cat.png", "nyan.png", "Reddit cat OWO.png"},
-            "CNT D:/" + user + "/Home/Master_Hacker_Things> ": {"Ghislaine Maxwell is a giant Lizard.jpg", "proof.avi", "Video of Bill Clinton being weird.avi", "destroy_fbi_choppers.exe", "hack_nasa.exe"}
+            "CNT D:/" + user + "/Master_Hacker_Things> ": {"Ghislaine Maxwell is a giant Lizard.jpg", "proof.avi", "Video of Bill Clinton being weird.avi", "destroy_fbi_choppers.exe", "hack_nasa.exe"}
         }
 
     def render_Terminal(self):
-        next_command = input(self.root_name)
+        next_command = input(self.current_dir)
         self.command_Interpreter(next_command)
 
     # Command Section and fun
@@ -110,19 +111,20 @@ class File_Directory:
         # Gotta parse the current directory
         if self.current_dir in self.fd:
             print("""
-                        |Name                                                                   |Length                   
-                    ----------------------------------------------------------------------------------------
+                        |Name                                                                     |Length                   
+                    ------------------------------------------------------------------------------------------
                     """)
             for f in self.fd[self.current_dir]:
                 print("""
                     {}                                              {} kb
-                    """.format(f.ljust(25), str(rand.randint(100, 1000000))).ljust(10))
+                    """.format(f.ljust(32), str(rand.randint(100, 1000000))).ljust(10))
         else:
             print("Error of some sort. I doubt that there will ever be an error.")
 
     def command_Interpreter(self, command):
+
         splitted_comm = command.split(' ')[0]
-        print(splitted_comm)
+        new_dir = self.root_name
 
         if splitted_comm == 'pwd':
             print(self.current_dir)
@@ -132,13 +134,18 @@ class File_Directory:
 
         if splitted_comm == 'ls':
             self.list_Directory()
-        elif splitted_comm == 'cd':
+
+        if splitted_comm == 'cd':
+            print(splitted_comm, aux)
             if aux != None and aux in self.fd[self.current_dir]:
                 self.last_dir = self.current_dir
-                self.current_dir = self.current_dir + aux
+                self.current_dir = new_dir + "/" + aux + "> "
 
             if aux == '../' or aux == '..':
                 self.current_dir = self.last_dir
+
+        if splitted_comm == 'exit()':
+            exit(1)
 
 
 if __name__ == "__main__":
