@@ -1,1 +1,1 @@
-#Python the hard way: excercise 48
+# Go see the folder of the same name
