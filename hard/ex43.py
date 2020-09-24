@@ -6,7 +6,7 @@ import random as rand
 import datetime
 
 
-class Game_Engine:
+class GameEngine:
     def __init__(self, scenario):
         self.scenario = scenario
 
@@ -17,7 +17,7 @@ class Game_Engine:
         exit(1)
 
 
-class Hacker_Scenario:
+class HackerScenario:
 
     user = ""
     passwords = {}
@@ -46,7 +46,7 @@ class Hacker_Scenario:
             else:
                 print("\n")
 
-        user_file_directory = File_Directory(self.user)
+        user_file_directory = FileDirectory(self.user)
         while True:
             user_file_directory.render_Terminal()
 
@@ -85,7 +85,7 @@ class Hacker_Scenario:
         self.welcome_scene()
 
 
-class File_Directory:
+class FileDirectory:
     rand.seed(10)
 
     def __init__(self, user):
@@ -149,6 +149,6 @@ class File_Directory:
 
 
 if __name__ == "__main__":
-    s = Hacker_Scenario("User")
-    e = Game_Engine(s)
+    s = HackerScenario("User")
+    e = GameEngine(s)
     e.play()
