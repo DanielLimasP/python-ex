@@ -1,1 +1,2 @@
-#Python the hard way: excercise 50
+# Python the hard way: excercise 50
+# lpthw.web practice... rendered pretty much obsolete...
