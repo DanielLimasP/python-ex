@@ -1,2 +1,2 @@
 # python_ex
- Ejercicios de Python the Hard way
+ Python the Hard way exs
